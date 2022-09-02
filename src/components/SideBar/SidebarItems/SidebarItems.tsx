@@ -13,60 +13,39 @@ function SidebarItems(props: any) {
       <Divider />
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: props.open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: props.open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText
-                primary={text}
-                sx={{ opacity: props.open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
+          <ListItemComp text={text} open={props.open} index={index} />
         ))}
       </List>
       <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItem key={text} disablePadding sx={{ display: "block" }}>
-            <ListItemButton
-              sx={{
-                minHeight: 48,
-                justifyContent: props.open ? "initial" : "center",
-                px: 2.5,
-              }}
-            >
-              <ListItemIcon
-                sx={{
-                  minWidth: 0,
-                  mr: props.open ? 3 : "auto",
-                  justifyContent: "center",
-                }}
-              >
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText
-                primary={text}
-                sx={{ opacity: props.open ? 1 : 0 }}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
     </div>
+  );
+}
+
+function ListItemComp(props: any) {
+  return (
+    <ListItem key={props.text} disablePadding sx={{ display: "block" }}>
+      <ListItemButton
+        sx={{
+          minHeight: 48,
+          justifyContent: props.open ? "initial" : "center",
+          px: 2.5,
+        }}
+      >
+        <ListItemIcon
+          sx={{
+            minWidth: 0,
+            mr: props.open ? 3 : "auto",
+            justifyContent: "center",
+          }}
+        >
+          {props.index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+        </ListItemIcon>
+        <ListItemText
+          primary={props.text}
+          sx={{ opacity: props.open ? 1 : 0 }}
+        />
+      </ListItemButton>
+    </ListItem>
   );
 }
 
