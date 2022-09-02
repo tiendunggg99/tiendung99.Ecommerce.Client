@@ -12,8 +12,8 @@ function SidebarItems(props: any) {
     <div>
       <Divider />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItemComp text={text} open={props.open} index={index} />
+        {dataMenus.map(({ text, icon }) => (
+          <ListItemComp text={text} open={props.open} icon={icon} key={text} />
         ))}
       </List>
       <Divider />
@@ -21,9 +21,20 @@ function SidebarItems(props: any) {
   );
 }
 
+const dataMenus = [
+  {
+    text: "Home",
+    icon: <InboxIcon />,
+  },
+  {
+    text: "About",
+    icon: <MailIcon />,
+  },
+];
+
 function ListItemComp(props: any) {
   return (
-    <ListItem key={props.text} disablePadding sx={{ display: "block" }}>
+    <ListItem disablePadding sx={{ display: "block" }}>
       <ListItemButton
         sx={{
           minHeight: 48,
@@ -38,7 +49,7 @@ function ListItemComp(props: any) {
             justifyContent: "center",
           }}
         >
-          {props.index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+          {props.icon}
         </ListItemIcon>
         <ListItemText
           primary={props.text}
