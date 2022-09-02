@@ -1,8 +1,8 @@
-import React from 'react';
-import { BrowserRouter } from 'react-router-dom';
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
 // import logo from './logo.svg';
-import './App.css';
-import Layout from './layout/Layout';
+import "./App.css";
+import Layout from "./layout/Layout";
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         </a>
       </header> */}
       <BrowserRouter>
-      <Layout/>
+        <Layout />
       </BrowserRouter>
     </div>
   );
