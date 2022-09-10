@@ -4,7 +4,7 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { Avatar, Box } from "@mui/material";
+import { Avatar, Box, Grid } from "@mui/material";
 import "./AppBarTop.scss";
 
 const drawerWidth = 240;
@@ -46,15 +46,14 @@ export default function AppBarTop(props: any) {
         >
           <MenuIcon />
         </IconButton>
-        <Typography variant="h6" noWrap component="div">
-          Mini variant drawer
-        </Typography>
-        <Box display="flex" flexGrow={1}>
-          <Avatar
-            alt="Remy Sharp"
-            src="https://mui.com/static/images/avatar/1.jpg"
-          />
-        </Box>
+        <Grid>
+          <Box display={"flex"} justifyContent={"flex-end"}>
+            <Avatar
+              alt="Remy Sharp"
+              src="https://mui.com/static/images/avatar/1.jpg"
+            />
+          </Box>
+        </Grid>
       </Toolbar>
     </AppBar>
   );
